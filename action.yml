@@ -1,0 +1,21 @@
+name: 'Missing Strings Golang'
+description: 'Detect missing translation strings'
+author: 'Vanilla OS Team'
+branding:
+  icon: 'code'
+  color: 'yellow'
+inputs:
+  locale_file:
+    description: 'Path to the default locale file'
+    required: false
+    default: 'locales/en.yml'
+  root:
+    description: 'Project root'
+    required: false
+    default: '.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.root }}
+  - ${{ inputs.locale_file }}
